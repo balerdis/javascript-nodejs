@@ -275,5 +275,88 @@ var buscador = (parametro)=>{
 console.log(buscador('i'));
 
 // join
-// une y genera un string con la union
+// une y genera un string a partir de esa union
+var elementos = ['aire', 'fuego', 'agua'];
+
+var resultado =  elementos.join();
+console.log(resultado);
+
+var resultado =  elementos.join('.');
+console.log(resultado);
+
+var clientes = [
+  { id: "1", nombre: "Ada" },
+  { id: "2", nombre: "Karina" },
+  { id: "3", nombre: "Dayana" },
+  { id: "4", nombre: "Pamela" },
+  { id: "1", nombre: "Michelle" },
+];
+
+// console.log(clientes.join());
+// console.log(Object.values({ id: "1", nombre: "Michelle" })); //<-- funciones de objetos 
+// console.log(Object.keys({ id: "1", nombre: "Michelle" })); //<-- funciones de objetos 
+
+//ejemplo de join, generar un csv con el objeto
+var csvGenerator = (array, separador = ',') => {
+  let headers = Object.keys(array[0]).join(separador);
+  console.log(headers)
+  let data = array.map(elemento=>Object.values(elemento).join(separador));
+  data.forEach(elemento=>console.log(elemento));
+  
+}
+csvGenerator(clientes)
+
+
+// concat, sort, splice, slice
+var array1 = [1,2,3,4,5]
+var array2 = [6,7,8,9,0]
+
+var array3 = array1.concat(array2);
+
+console.log(array1);
+console.log(array2);
+console.log(array3);
+
+
+var array4 = [...array1,...array2]
+
+console.log(array4)
+
+
+//sort
+var array1 = [1,2,3,4,5,6,7,8,9,0]
+
+console.log(array1.sort())
+
+
+var meses = ['Dic', 'Ene', 'Mar', 'Feb']
+console.log(meses.sort())
+
+
+var array = [1,10000, 21, 30,4];
+console.log(array.sort((a,b)=>a-b)) // si a esta primero en la resta es Ascendente (regla nemotecnica)
+
+//splice
+// remueve o modifica elementos de un array o al mismo array en si
+var nombres = ['Gabriel', 'Geovanny', 'Dayana'];
+nombres.splice(1);
+console.log(nombres); //elimina desde 1 en adelante, si le pasas un solo parametro
+
+var nombres = ['Gabriel', 'Geovanny', 'Dayana'];
+nombres.splice(1,1);
+console.log(nombres); //elimina desde 1 y un elemento, si le pasas 2 parametros
+
+var nombres = ['Gabriel', 'Geovanny', 'Dayana'];
+nombres.splice(1,1, 'Ada');
+console.log(nombres); //reemplaza desde 1 y un elemento, con lo que pusiste en el tercer parametro
+
+//slice: devuelve un recorte del array // inmutable
+var nombres = ['Gabriel', 'Geovanny', 'Dayana']; 
+var resultado = nombres.slice(1,2); // no incluye la ultima posicion
+console.log(resultado)
+
+var nombres = ['Gabriel', 'Geovanny', 'Dayana']; 
+var resultado = nombres.slice(1,3); // no incluye la ultima posicion
+console.log(resultado)
+
 
