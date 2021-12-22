@@ -33,3 +33,25 @@ const getData = (cb)=>{
 const imprimirData = (data) => {console.log(data)}
 
 getData(imprimirData);
+
+
+// ******* simulemos un error en la llamada que tarbada y como hacemos para trabajar ese error (en el momento en que solo habia callbacks ?)
+const getData = (cb, cbError)=>{
+    if(false) {
+        setTimeout(()=>{
+            cb({
+                nombre: 'Geovanny',
+                apellido: 'Arguello'
+            })
+        }, 3000);
+    }
+    else {
+        cbError(new Error('No se pudo obtener los datos'))
+    }
+}
+
+
+const imprimirData = (data) => {console.log(data)}
+const errorHandler = (error) => {console.log(error)}
+
+getData(imprimirData,errorHandler);
